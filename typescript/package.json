@@ -1,0 +1,19 @@
+{
+  "name": "blaeu",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@types/node": "^17.0.35",
+    "typescript": "^4.6.4",
+    "vite": "^2.9.9"
+  },
+  "scripts": {
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@2gis/geojson-vt": "^3.2.3",
+    "maplibre-gl": "^2.1.9",
+    "vt-pbf": "^3.1.3"
+  }
+}

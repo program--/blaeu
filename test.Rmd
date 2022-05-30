@@ -1,0 +1,20 @@
+---
+---
+
+```{r setup}
+devtools::load_all()
+df <- quakes |>
+    dplyr::mutate(long = dplyr::if_else(long > 180, long - 360, long)) |>
+    sf::st_as_sf(coords = c(2, 1), crs = 4326) |>
+    geojsonsf::sf_geojson() |>
+    jsonlite::fromJSON(FALSE, )
+
+blaeu::map(style = blaeu::carto("voyager")) |>
+    blaeu::map_source(df, id = "quakes") |>
+    blaeu::map_layer(
+        id = "pts",
+        source = "quakes",
+        type = "circle",
+        paint = list("circle-color" = "red")
+    )
+```

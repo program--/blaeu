@@ -1,0 +1,18 @@
+Package: blaeu
+Title: Web Mapping Framework for R
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "First",
+           family = "Last",
+           role = c("aut", "cre"),
+           email = "first.last@example.com",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: Provides widget bindings to MaplibreGL along with additional tooling to support
+             performant web mapping for large and cloud-native data.
+License: BSD_3_clause + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
+Imports:
+    htmlwidgets

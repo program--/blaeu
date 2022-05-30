@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+      "target": "esnext",
+      "module": "es6",
+      "esModuleInterop": true,
+      "lib": [ "dom", "es2015", "es6", "es5" ],
+      "sourceMap": true,
+      "outDir": "public",
+      "downlevelIteration": true,
+      "allowJs": true,
+      "baseUrl": "./lib/",
+      "moduleResolution": "node",
+      "experimentalDecorators": true
+    },
+    "include": ["lib/**/*.ts"]
+  }
