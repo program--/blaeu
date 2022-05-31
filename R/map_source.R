@@ -32,7 +32,9 @@ map_source.sf <- function(map, x, ..., id = NULL) {
     #    converted to vector tiles in memory and served directly
     #    that way. This will allow for very large data to be
     #    served seamlessly.
-    stop("sf objects not implemented")
+
+    geojson <- jsonlite::fromJSON(geojsonsf::sf_geojson(x), FALSE)
+    map_source.list(map, geojson, ..., type = "geojson", id = id)
 }
 
 #' @export

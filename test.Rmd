@@ -7,7 +7,7 @@ df <- quakes |>
     dplyr::mutate(long = dplyr::if_else(long > 180, long - 360, long)) |>
     sf::st_as_sf(coords = c(2, 1), crs = 4326) |>
     geojsonsf::sf_geojson() |>
-    jsonlite::fromJSON(FALSE, )
+    jsonlite::fromJSON(FALSE)
 
 blaeu::map(style = blaeu::carto("voyager")) |>
     blaeu::map_source(df, id = "quakes") |>
@@ -75,5 +75,40 @@ blaeu::map(style = blaeu::carto("dark-matter")) |>
             radius = 30,
             weight = list("/", list("get", "mag"), 2)
         )
+    )
+```
+
+```{r}
+blaeu::map(style = blaeu::carto("voyager")) |>
+    blaeu::map_source(
+        sf::st_transform(
+            sf::read_sf(system.file("gpkg/nc.gpkg", package = "sf")),
+            4326
+        ),
+        id = "nc"
+    ) |>
+    blaeu::map_layer(
+        id = "b",
+        source = "nc",
+        type = "fill-extrusion",
+        paint = paint_fill_extrusion(
+            height = list("get", "BIR79"),
+            color = list(
+                "interpolate",
+                list("linear"),
+                list("get", "BIR79"),
+                0,
+                "#edf8fb",
+                319,
+                "#b2e2e2",
+                1308,
+                "#66c2a4",
+                2636,
+                "#2ca25f",
+                4989,
+                "#006d2c"
+            )
+        ),
+        popup_text = "Number of Births (1979): ${BIR79}"
     )
 ```

@@ -13,17 +13,19 @@ map_layer <- function(widget, id,
                       source_layer = NULL,
                       type = layer_types(),
                       paint = list(),
-                      popup = list()) {
+                      popup_text = character(0)) {
     type <- match.arg(type)
     args <- list(
-        widget         = widget,
-        method         = "addLayer",
-        id             = id,
-        source         = source,
+        widget = widget,
+        method = "addLayer",
+        id = id,
+        source = source,
         "source-layer" = source_layer,
-        type           = type,
-        paint          = paint,
-        popup          = c(list(id = id), popup)
+        type = type,
+        paint = paint,
+        popup = if (length(popup_text) > 0) {
+            c(list(id = id), list(text = popup_text))
+        }
     )
 
     do.call(invoke, args[lengths(args, FALSE) > 0])
