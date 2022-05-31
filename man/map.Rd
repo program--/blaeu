@@ -2,7 +2,7 @@
 % Please edit documentation in R/map.R
 \name{map}
 \alias{map}
-\title{Create a Maplibre-GL map widget}
+\title{Create a MaplibreGL map widget}
 \usage{
 map(
   style = openstreetmap(),
@@ -24,5 +24,5 @@ map(
 \item{...}{Additional options passed to maplibregl constructor}
 }
 \description{
-Create a Maplibre-GL map widget
+Create a MaplibreGL map widget
 }

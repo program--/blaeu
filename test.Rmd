@@ -15,6 +15,65 @@ blaeu::map(style = blaeu::carto("voyager")) |>
         id = "pts",
         source = "quakes",
         type = "circle",
-        paint = list("circle-color" = "red")
+        paint = paint_circle(
+            color = c(
+                list(
+                    "interpolate",
+                    list("linear"),
+                    list("get", "mag")
+                ),
+                rbind(
+                    as.list(seq(from = 0, to = 5)),
+                    as.list(substr(viridisLite::inferno(6), 1, 7))
+                )
+            ),
+            blur = 0.2,
+            radius = list("^", list("get", "mag"), 1.25)
+        ),
+        popup = list(text = "<strong>Magnitude</strong>: ${mag}")
+    )
+```
+
+```{r}
+blaeu::map(style = blaeu::carto("dark-matter")) |>
+    blaeu::map_source(df, id = "quakes") |>
+    blaeu::map_layer(
+        id = "pts",
+        source = "quakes",
+        type = "heatmap",
+        paint = paint_heatmap(
+            color = c(
+                list(
+                    "interpolate",
+                    list("linear"),
+                    list("heatmap-density")
+                ),
+                rbind(
+                    as.list(seq(from = 0, to = 1, length.out = 6)),
+                    as.list(
+                        paste0(
+                            "rgba(",
+                            apply(
+                                col2rgb(
+                                    paste0(
+                                        substr(viridisLite::turbo(6), 1, 7),
+                                        toupper(format(as.hexmode(
+                                            round(seq(from = 0, to = 255, length.out = 6))
+                                        ), width = 2))
+                                    ),
+                                    alpha = TRUE
+                                ),
+                                MARGIN = 2,
+                                paste,
+                                collapse = ","
+                            ),
+                            ")"
+                        )
+                    )
+                )
+            ),
+            radius = 30,
+            weight = list("/", list("get", "mag"), 2)
+        )
     )
 ```
