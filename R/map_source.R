@@ -14,7 +14,23 @@ map_source.default <- function(map, x, ..., id = NULL) {
 #' @export
 #' @rdname map_source
 map_source.character <- function(map, x, ..., type = "geojson", id = NULL) {
-    invoke(map, "addSource", list(id = id, type = type, data = x))
+    if (type == "pmtiles") {
+        if (!grepl("pmtiles://", x)) {
+            x <- paste0("pmtiles://", x)
+        }
+
+        if (!grepl("/\\{z\\}/\\{x\\}/\\{y\\}", x)) {
+            x <- paste0(
+                x,
+                if (substr(x, nchar(x), nchar(x)) != "/") "/",
+                "{z}/{x}/{y}"
+            )
+        }
+
+        invoke(map, "addSource", list(id = id, type = "vector", tiles = x, ...))
+    } else {
+        invoke(map, "addSource", list(id = id, type = type, data = x, ...))
+    }
 }
 
 #' @export

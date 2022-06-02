@@ -31,7 +31,7 @@ paint_line <- function(blur = 0,
                        translate_anchor = c("map", "viewport"),
                        width = 1) {
     translate_anchor <- match.arg(translate_anchor)
-    paint("line")
+    .paint("line")
 }
 
 paint_symbol <- function(icon_color = "#000000",

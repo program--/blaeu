@@ -14,6 +14,7 @@
   "dependencies": {
     "@2gis/geojson-vt": "^3.2.3",
     "maplibre-gl": "^2.1.9",
+    "pmtiles": "^1.0.4",
     "vt-pbf": "^3.1.3"
   }
 }

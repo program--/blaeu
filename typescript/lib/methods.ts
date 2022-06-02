@@ -3,10 +3,16 @@ import { Popup } from 'maplibre-gl'
 function addSource(args) {
     const map: maplibregl.Map = this;
     args = args[0];
-    map.addSource(args['id'], {
-        type: args['type'],
-        data: args['data']
-    })
+    const id = args['id']
+    delete args['id']
+
+    if (args['tiles'] != undefined) {
+        args['tiles'] = args['tiles'] instanceof Array
+                      ? args['tiles']
+                      : [args['tiles']]
+    }
+
+    map.addSource(id, args)
 }
 
 function addLayer(args) {

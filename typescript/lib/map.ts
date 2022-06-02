@@ -1,5 +1,8 @@
 import maplibregl from 'maplibre-gl'
 import methods from './methods'
+import { ProtocolCache } from 'pmtiles'
+
+maplibregl.addProtocol("pmtiles", new ProtocolCache().protocol)
 
 export function createMap(el: HTMLElement, width: string, height: string) {
     const map = new maplibregl.Map({
