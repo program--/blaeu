@@ -1,6 +1,6 @@
 #' Add a layer to a map.
-#' @param widget
-#' @param id
+#' @param widget Map widget
+#' @param id ID of layer
 #' @param popup a `list` with at least the element `$text`.
 #'              `$text` must be a string which may contain
 #'              string interpolation variables (`${...}`).

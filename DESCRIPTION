@@ -9,7 +9,7 @@ Authors@R:
            comment = c(ORCID = "YOUR-ORCID-ID"))
 Description: Provides widget bindings to MaplibreGL along with additional tooling to support
              performant web mapping for large and cloud-native data.
-License: BSD_3_clause + file LICENSE
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
