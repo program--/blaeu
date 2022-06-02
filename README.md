@@ -131,6 +131,30 @@ blaeu::map(style = blaeu::openstreetmap()) |>
 
 ![](man/figures/readme_3.png)
 
+### PMTiles Support
+
+**blaeu** also has support for PMTiles:
+
+``` r
+blaeu::map() |>
+  blaeu::map_source(
+    x = "https://some/url/to/tiles.pmtiles",
+    type = "pmtiles",
+    id = "my-pmtiles-source",
+    # Maxzoom must be specified, otherwise
+    # the features will disappear after
+    # passing the maximum zoom
+    maxzoom = 10
+  ) |>
+  blaeu::map_layer(
+    id = "my-pmtiles-layer",
+    source = "my-pmtiles-source",
+    source_layer = "my-pmtiles-source-layer",
+    type = "line",
+    paint = blaeu::paint_line(color = "blue")
+  )
+```
+
 ## Development
 
 **blaeu** uses:
