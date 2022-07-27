@@ -2,11 +2,11 @@ Package: blaeu
 Title: Web Mapping Framework for R
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Justin",
+           family = "Singh-Mohudpur",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
+           email = "justin@justinsingh.me",
+           comment = c(ORCID = "0000-0002-5233-5799"))
 Description: Provides widget bindings to MaplibreGL along with additional tooling to support
              performant web mapping for large and cloud-native data.
 License: MIT + file LICENSE

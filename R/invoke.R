@@ -5,6 +5,7 @@
 #' @return `widget` with the method invocations appended
 #' @details
 #' All `method` names are found in the `typescript/lib/methods.ts` file.
+#' @keywords internal
 invoke <- function(widget, method, ...) {
     pos <- length(widget$x$calls) + 1
     arg <- list(...)

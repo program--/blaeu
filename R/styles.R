@@ -43,7 +43,7 @@ openstreetmap <- function() {
             letters[1:3]
         ),
         attribution = paste0(
-            "© ",
+            "\u00a9 ",
             '<a href="https://www.openstreetmap.org/copyright">',
             "OpenStreetMap",
             "</a>",

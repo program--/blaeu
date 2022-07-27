@@ -1,6 +1,33 @@
+# nolint start
 #' Create a map source
+#' @param map A blaeu `map` object.
+#' @param x A data source, see details.
+#' @param ... Additional options passed to JS, see details.
+#' @param id ID for the source
+#' @param type Type of source, see [blaeu::source_types].
+#' @details
+#' ### Data Sources
+#' - URLs
+#' - GeoJSON Strings
+#' - GeoJSON Lists
+#' - `sf` Objects
+#'
+#' #### Planned Data Sources
+#' - `sfc` Objects
+#' - `terra::SpatVector`
+#' - `terra::SpatRaster`
+#'
+#' ### Additional Options
+#' Argument  | Type        | Description
+#' --------- | ----------- | -----------
+#' **tiled** | `logical`   | Should the data source be converted to embedded vector tiles?
+#' **tiles** | `character` | Vector of XYZ tile endpoints.
+#'
+#'
+#' @seealso [blaeu::map]
 #' @export
 #' @rdname map_source
+# nolint end
 map_source <- function(map, x, ..., id = NULL) {
     UseMethod("map_source", x)
 }
@@ -45,12 +72,6 @@ map_source.list <- function(map, x, ..., type = source_types(), id = NULL) {
 #' @export
 #' @rdname map_source
 map_source.sf <- function(map, x, ..., id = NULL) {
-    # `sf` objects are expected to be implemented in two ways:
-    # 1. as a basic implementation converting sf objs to GeoJSON
-    # 2. as a vector tile implementation, where sf objects are
-    #    converted to vector tiles in memory and served directly
-    #    that way. This will allow for very large data to be
-    #    served seamlessly.
     invoke(
         map,
         "addSource",

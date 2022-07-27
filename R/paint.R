@@ -1,7 +1,73 @@
+# nolint start
+#' Add paint rules to a layer style.
+#' @param color
+#' @param opacity
+#' @param pattern
+#' @param antialias
+#' @param outline_color
+#' @param translate
+#' @param translate_anchor
+#' @param blur
+#' @param dasharray
+#' @param gap_width
+#' @param gradient
+#' @param offset
+#' @param width
+#' @param icon_color
+#' @param icon_halo_blur
+#' @param icon_halo_color
+#' @param icon_halo_width
+#' @param icon_opacity
+#' @param icon_translate
+#' @param icon_translate_anchor
+#' @param text_color
+#' @param text_halo_blur
+#' @param text_halo_color
+#' @param text_halo_width
+#' @param text_opacity
+#' @param text_translate
+#' @param text_translate_anchor
+#' @param brightness_max
+#' @param brightness_min
+#' @param contrast
+#' @param fade_duration
+#' @param hue_rotate
+#' @param resampling
+#' @param saturation
+#' @param pitch_alignment
+#' @param pitch_scale
+#' @param radius
+#' @param stroke_color
+#' @param stroke_opacity
+#' @param stroke_width
+#' @param base
+#' @param height
+#' @param vertical_gradient
+#' @param intensity
+#' @param weight
+#' @param accent_color
+#' @param exaggeration
+#' @param highlight_color
+#' @param illumination_anchor
+#' @param illumination_direction
+#' @param shadow_color
+#' @details
+#' For specific parameter descriptions, see the
+#' [MapLibre GL style specification](https://maplibre.org/maplibre-gl-js-docs/style-spec/layers/).
+#' All paint defaults are the same defaults from the MapLibre GL style specification.
+#'
+#' ### Expressions
+#' [Expressions](https://maplibre.org/maplibre-gl-js-docs/style-spec/expressions/)
+#' are supported via nested lists, in the same manner that Javascript arrays are used.
+#' @rdname paint
+#' @export
+# nolint end
 paint_background <- function(color = "#000000", opacity = 1, pattern = NULL) {
     .paint("background")
 }
 
+#' @rdname paint
+#' @export
 paint_fill <- function(antialias = TRUE,
                        color = "#000000",
                        opacity = 1,
@@ -10,8 +76,8 @@ paint_fill <- function(antialias = TRUE,
                        translate = c(0, 0),
                        translate_anchor = c("map", "viewport")) {
     translate_anchor <- match.arg(translate_anchor)
-    if (!is.null(outline_color) & identical(antialias, FALSE)) {
-        rlang::warn(
+    if (!is.null(outline_color) && identical(antialias, FALSE)) {
+        warning(
             "`outline_color` requires `antialias` to be TRUE"
         )
     }
@@ -19,6 +85,8 @@ paint_fill <- function(antialias = TRUE,
     .paint("fill")
 }
 
+#' @rdname paint
+#' @export
 paint_line <- function(blur = 0,
                        color = "#000000",
                        dasharray = NULL,
@@ -34,6 +102,8 @@ paint_line <- function(blur = 0,
     .paint("line")
 }
 
+#' @rdname paint
+#' @export
 paint_symbol <- function(icon_color = "#000000",
                          icon_halo_blur = 0,
                          icon_halo_color = "#000000",
@@ -53,6 +123,8 @@ paint_symbol <- function(icon_color = "#000000",
     .paint("")
 }
 
+#' @rdname paint
+#' @export
 paint_raster <- function(brightness_max = 1,
                          brightness_min = 0,
                          contrast = 0,
@@ -65,6 +137,8 @@ paint_raster <- function(brightness_max = 1,
     .paint("raster")
 }
 
+#' @rdname paint
+#' @export
 paint_circle <- function(blur = 0,
                          color = "#000000",
                          opacity = 1,
@@ -82,6 +156,8 @@ paint_circle <- function(blur = 0,
     .paint("circle")
 }
 
+#' @rdname paint
+#' @export
 paint_fill_extrusion <- function(base = 0,
                                  color = "#000000",
                                  height = 0,
@@ -94,6 +170,8 @@ paint_fill_extrusion <- function(base = 0,
     .paint("fill-extrusion")
 }
 
+#' @rdname paint
+#' @export
 paint_heatmap <- function(color,
                           intensity = 1,
                           opacity = 1,
@@ -102,6 +180,8 @@ paint_heatmap <- function(color,
     .paint("heatmap")
 }
 
+#' @rdname paint
+#' @export
 paint_hillshade <- function(accent_color = "#000000",
                             exaggeration = 0.5,
                             highlight_color = "#FFFFFF",

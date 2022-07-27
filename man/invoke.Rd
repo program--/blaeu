@@ -22,3 +22,4 @@ Add a method invocation to a widget object
 \details{
 All \code{method} names are found in the \code{typescript/lib/methods.ts} file.
 }
+\keyword{internal}

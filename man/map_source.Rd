@@ -24,6 +24,46 @@ map_source(map, x, ..., id = NULL)
 
 \method{map_source}{sfg}(map, x, ..., id = NULL)
 }
+\arguments{
+\item{map}{A blaeu \code{map} object.}
+
+\item{x}{A data source, see details.}
+
+\item{...}{Additional options passed to JS, see details.}
+
+\item{id}{ID for the source}
+
+\item{type}{Type of source, see \link{source_types}.}
+}
 \description{
 Create a map source
+}
+\details{
+\subsection{Data Sources}{
+\itemize{
+\item URLs
+\item GeoJSON Strings
+\item GeoJSON Lists
+\item \code{sf} Objects
+}
+\subsection{Planned Data Sources}{
+\itemize{
+\item \code{sfc} Objects
+\item \code{terra::SpatVector}
+\item \code{terra::SpatRaster}
+}
+}
+
+}
+
+\subsection{Additional Options}{\tabular{lll}{
+   Argument \tab Type \tab Description \cr
+   \strong{tiled} \tab \code{logical} \tab Should the data source be converted to embedded vector tiles? \cr
+   \strong{tiles} \tab \code{character} \tab Vector of XYZ tile endpoints. \cr
+}
+
+}
+}
+\seealso{
+\link{map}
 }

@@ -1,13 +1,17 @@
 #' Add a layer to a map.
 #' @param widget Map widget
 #' @param id ID of layer
-#' @param popup a `list` with at least the element `$text`.
-#'              `$text` must be a string which may contain
-#'              string interpolation variables (`${...}`).
-#'              For example, if `source` has a property `mag`,
-#'              the popup text can be specified as:
-#'                  "Magnitude: ${mag}"
-#'              to display the `mag` property.
+#' @param source
+#' @param source_layer
+#' @param type
+#' @param paint
+#' @param popup_text a `list` with at least the element `$text`.
+#'                   `$text` must be a string which may contain
+#'                   string interpolation variables (`${...}`).
+#'                   For example, if `source` has a property `mag`,
+#'                   the popup text can be specified as:
+#'                       `"Magnitude: ${mag}"`
+#'                   to display the `mag` property.
 #' @export
 map_layer <- function(widget, id,
                       source = NULL,

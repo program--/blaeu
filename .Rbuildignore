@@ -3,3 +3,6 @@
 ^man/figures/*$
 ^compile_flags.txt$
 ^typescript/*$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$

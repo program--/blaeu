@@ -19,12 +19,12 @@ map_layer(
 
 \item{id}{ID of layer}
 
-\item{popup}{a \code{list} with at least the element \verb{$text}.
+\item{popup_text}{a \code{list} with at least the element \verb{$text}.
 \verb{$text} must be a string which may contain
 string interpolation variables (\verb{$\{...\}}).
 For example, if \code{source} has a property \code{mag},
 the popup text can be specified as:
-"Magnitude: ${mag}"
+\code{"Magnitude: ${mag}"}
 to display the \code{mag} property.}
 }
 \description{

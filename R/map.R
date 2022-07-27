@@ -26,8 +26,11 @@ map <- function(style = openstreetmap(), width = NULL, height = NULL, element_id
     )
 }
 
+#' Shiny bindings
+#' @inheritParams htmlwidgets::shinyWidgetOutput
 #' @importFrom htmlwidgets shinyWidgetOutput
 #' @export
+#' @rdname shiny
 mapOutput <- function(outputId, width = "100%", height = "400px") {
     htmlwidgets::shinyWidgetOutput(
         outputId,
@@ -38,8 +41,10 @@ mapOutput <- function(outputId, width = "100%", height = "400px") {
     )
 }
 
+#' @inheritParams htmlwidgets::shinyRenderWidget
 #' @importFrom htmlwidgets shinyRenderWidget
 #' @export
+#' @rdname shiny
 renderMap <- function(expr, env = parent.frame(), quoted = FALSE) {
     if (!quoted) {
         expr <- substitute(expr)
