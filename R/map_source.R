@@ -13,7 +13,9 @@ map_source.default <- function(map, x, ..., id = NULL) {
 
 #' @export
 #' @rdname map_source
-map_source.character <- function(map, x, ..., type = "geojson", id = NULL) {
+map_source.character <- function(map, x, ..., type = source_types(), id = NULL) {
+    type <- match.arg(type)
+
     if (type == "pmtiles") {
         if (!grepl("pmtiles://", x)) {
             x <- paste0("pmtiles://", x)
@@ -35,7 +37,8 @@ map_source.character <- function(map, x, ..., type = "geojson", id = NULL) {
 
 #' @export
 #' @rdname map_source
-map_source.list <- function(map, x, ..., type = "geojson", id = NULL) {
+map_source.list <- function(map, x, ..., type = source_types(), id = NULL) {
+    type <- match.arg(type)
     invoke(map, "addSource", list(id = id, type = type, data = x))
 }
 
@@ -48,9 +51,11 @@ map_source.sf <- function(map, x, ..., id = NULL) {
     #    converted to vector tiles in memory and served directly
     #    that way. This will allow for very large data to be
     #    served seamlessly.
-
-    geojson <- jsonlite::fromJSON(geojsonsf::sf_geojson(x), FALSE)
-    map_source.list(map, geojson, ..., type = "geojson", id = id)
+    invoke(
+        map,
+        "addSource",
+        list(id = id, type = "geojson", data = x, sf = TRUE, ...)
+    )
 }
 
 #' @export
@@ -62,5 +67,5 @@ map_source.sfc <- function(map, x, ..., id = NULL) {
 #' @export
 #' @rdname map_source
 map_source.sfg <- function(map, x, ..., id = NULL) {
-    stop("sfg objects not implemented")
+    stop("`sfg` objects are not supported. Convert to an `sfc` or `sf` object first.")
 }

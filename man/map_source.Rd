@@ -14,9 +14,9 @@ map_source(map, x, ..., id = NULL)
 
 \method{map_source}{default}(map, x, ..., id = NULL)
 
-\method{map_source}{character}(map, x, ..., type = "geojson", id = NULL)
+\method{map_source}{character}(map, x, ..., type = source_types(), id = NULL)
 
-\method{map_source}{list}(map, x, ..., type = "geojson", id = NULL)
+\method{map_source}{list}(map, x, ..., type = source_types(), id = NULL)
 
 \method{map_source}{sf}(map, x, ..., id = NULL)
 

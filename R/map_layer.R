@@ -8,6 +8,7 @@
 #'              the popup text can be specified as:
 #'                  "Magnitude: ${mag}"
 #'              to display the `mag` property.
+#' @export
 map_layer <- function(widget, id,
                       source = NULL,
                       source_layer = NULL,

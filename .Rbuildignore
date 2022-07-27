@@ -1,3 +1,5 @@
 ^LICENSE\.md$
 ^README\.Rmd$
 ^man/figures/*$
+^compile_flags.txt$
+^typescript/*$
