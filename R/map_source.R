@@ -20,8 +20,7 @@
 #' ### Additional Options
 #' Argument  | Type        | Description
 #' --------- | ----------- | -----------
-#' **tiled** | `logical`   | Should the data source be converted to embedded vector tiles?
-#' **tiles** | `character` | Vector of XYZ tile endpoints.
+#' **tiles** | `logical`   | Should `x` be considered a list of XYZ tiles?
 #'
 #'
 #' @seealso [blaeu::map]
@@ -40,7 +39,7 @@ map_source.default <- function(map, x, ..., id = NULL) {
 
 #' @export
 #' @rdname map_source
-map_source.character <- function(map, x, ..., type = source_types(), id = NULL) {
+map_source.character <- function(map, x, ..., tiles = FALSE, type = source_types(), id = NULL) {
     type <- match.arg(type)
 
     if (type == "pmtiles") {
@@ -56,6 +55,8 @@ map_source.character <- function(map, x, ..., type = source_types(), id = NULL) 
             )
         }
 
+        invoke(map, "addSource", list(id = id, type = "vector", tiles = x, ...))
+    } else if (tiles) {
         invoke(map, "addSource", list(id = id, type = "vector", tiles = x, ...))
     } else {
         invoke(map, "addSource", list(id = id, type = type, data = x, ...))

@@ -17,7 +17,7 @@ map <- function(style = openstreetmap(), width = NULL, height = NULL, element_id
     # These call functions need to be defined in the `methods.ts` file
 
     htmlwidgets::createWidget(
-        name      = "map",
+        name      = "blaeu",
         x         = widget_data,
         width     = width,
         height    = height,

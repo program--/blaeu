@@ -1,8 +1,0 @@
-dependencies:
-  - name: maplibre-gl
-    version: 2.1.1
-    src: htmlwidgets/lib/maplibre-gl-2.1.1
-    script:
-      - maplibre-gl.js
-    stylesheet:
-      - maplibre-gl.css

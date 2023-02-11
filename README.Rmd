@@ -180,7 +180,7 @@ To build out the current TS code, navigate to the `typescript/` directory and ru
 yarn build
 ```
 
-This will build, bundle, and push the TS code to `inst/htmlwidgets/map.js`, which is the primary
+This will build, bundle, and push the TS code to `inst/htmlwidgets/blaeu.js`, which is the primary
 interface to R's HTMLWidgets package.
 
 ## License
