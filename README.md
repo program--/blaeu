@@ -172,7 +172,7 @@ directory and run:
     yarn build
 
 This will build, bundle, and push the TS code to
-`inst/htmlwidgets/map.js`, which is the primary interface to R’s
+`inst/htmlwidgets/blaeu.js`, which is the primary interface to R’s
 HTMLWidgets package.
 
 ## License
