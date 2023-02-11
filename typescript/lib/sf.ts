@@ -1,4 +1,4 @@
-export function handleSfObjects(data, geometryColumn): Object {
+export function handleSfObjects(data: Object, geometryColumn?: string): Object {
     if (geometryColumn == undefined) {
         geometryColumn = data['geom'] != undefined
             ? 'geom'

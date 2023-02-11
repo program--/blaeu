@@ -1,14 +1,16 @@
 import path from 'path'
 import { defineConfig } from 'vite'
 
-module.exports = defineConfig({
+export default defineConfig({
     build: {
         lib: {
             entry: path.resolve(__dirname, 'lib/main.ts'),
             name: 'blaeu',
-            fileName: (format) => 'map.js'
+            formats: ['umd'],
+            fileName: (_) => 'blaeu.js'
         },
-        target: 'esnext',
+        target: 'modules',
+        minify: 'esbuild',
         outDir: '../inst/htmlwidgets',
         emptyOutDir: false
     }
